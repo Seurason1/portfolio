@@ -21,8 +21,7 @@ const siteData = {
                 "assets/portfolio/Axegun/AxeGun (3).png",
                 "assets/portfolio/Axegun/AxeGun (4).png",
                 "assets/portfolio/Axegun/AxeGun (5).png",
-                "assets/portfolio/Axegun/AxeGun (6).png",
-                
+                "assets/portfolio/Axegun/AxeGun (6).png"                
             ]
         },
         {
