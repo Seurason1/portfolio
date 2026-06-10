@@ -77,22 +77,22 @@ const siteData = {
             thumbnail: "assets/portfolio/Rocks/1.png",
             detailImages: [
                 "assets/portfolio/Rocks/1.png",
-                "images/wood_detail2.jpg"
-            ]
-        },
-        {
-            id: 7,
-            title: "앤틱 원목 서랍장 복원 및 렌더링",
-            thumbnail: "images/wood_thumb.jpg",
-            detailImages: [
-                "assets/portfolio/Rocks/1.png",
                 "assets/portfolio/Rocks/2 (1).png",
                 "assets/portfolio/Rocks/2 (2).png",
                 "assets/portfolio/Rocks/3 (1).png",
                 "assets/portfolio/Rocks/3 (2).png",
                 "assets/portfolio/Rocks/5.png",
                 "assets/portfolio/Rocks/6 (1).png",
-                "assets/portfolio/Rocks/6 (2).png"                
+                "assets/portfolio/Rocks/6 (2).png"
+            ]
+        },
+        {
+            id: 7,
+            title: "Vintage telephone",
+            thumbnail: "assets/portfolio/Vintage Telephone/0 (1).png",
+            detailImages: [
+                "assets/portfolio/Vintage Telephone/0 (1).png",
+                "assets/portfolio/Vintage Telephone/0 (2).png"                             
             ]
         }
         // 새로운 파일을 올리고 싶다면 위 형식과 똑같이 { id: 4, title: "새 작업", ... } 를 추가하세요.
