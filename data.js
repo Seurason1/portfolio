@@ -13,11 +13,16 @@ const siteData = {
     portfolio: [
         {
             id: 1, // 고유 번호
-            title: "Worn Leather Alpha 텍스처 제작 (Substance Painter)",
-            thumbnail: "images/leather_thumb.jpg", // 메인화면 정사각형 썸네일
+            title: "AxeGun",
+            thumbnail: "assets/portfolio/Axegun/AxeGun (1).png", // 메인화면 정사각형 썸네일
             detailImages: [ // 세부 페이지에서 스크롤될 이미지들
-                "images/leather_detail1.jpg",
-                "images/leather_detail2.jpg"
+                "assets/portfolio/Axegun/AxeGun (1).png",
+                "assets/portfolio/Axegun/AxeGun (2).png",
+                "assets/portfolio/Axegun/AxeGun (3).png",
+                "assets/portfolio/Axegun/AxeGun (4).png",
+                "assets/portfolio/Axegun/AxeGun (5).png",
+                "assets/portfolio/Axegun/AxeGun (6).png",
+                
             ]
         },
         {
