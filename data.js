@@ -26,23 +26,75 @@ const siteData = {
         },
         {
             id: 2,
-            title: "앤틱 원목 서랍장 복원 및 렌더링",
-            thumbnail: "images/wood_thumb.jpg",
+            title: "Hand Drill",
+            thumbnail: "assets/portfolio/Hand Drill/5 (1).png",
             detailImages: [
-                "images/wood_detail1.jpg",
-                "images/wood_detail2.jpg"
+                "assets/portfolio/Hand Drill/5 (1).png",
+                "assets/portfolio/Hand Drill/5 (2).png",
+                "assets/portfolio/Hand Drill/5 (3).png",
+                "assets/portfolio/Hand Drill/5 (4).png",
+                "assets/portfolio/Hand Drill/5 (5).png"
             ]
         },
         {
             id: 3,
-            title: "건축물 3D 모델링 (정면/측면 비율 유지)",
-            thumbnail: "images/building_thumb.jpg",
+            title: "Chesterfield chair",
+            thumbnail: "assets/portfolio/Chesterfield chair/6 (1).png",
             detailImages: [
-                "images/building_detail1.jpg",
-                "images/building_detail2.jpg",
-                "images/building_detail3.jpg"
+                "assets/portfolio/Chesterfield chair/6 (1).png",
+                "assets/portfolio/Chesterfield chair/6 (2).png",
+                "assets/portfolio/Chesterfield chair/6 (3).png",
+                "assets/portfolio/Chesterfield chair/6 (4).png"
             ]
-        }
+        },
+        {
+            id: 4,
+            title: "Wood chair",
+            thumbnail: "assets/portfolio/Wood chair/4 (1).png",
+            detailImages: [
+                "assets/portfolio/Wood chair/4 (1).png",
+                "assets/portfolio/Wood chair/4 (2).png",
+                "assets/portfolio/Wood chair/4 (3).png",
+                "assets/portfolio/Wood chair/4 (4).png",
+                "assets/portfolio/Wood chair/sofaRef(1).png",
+                "assets/portfolio/Wood chair/sofaRef(2).png"
+            ]
+        },
+        {
+            id: 5,
+            title: "Post apocalypse Knife",
+            thumbnail: "assets/portfolio/Post apocalypse Knife/2 (1).png",
+            detailImages: [
+                "assets/portfolio/Post apocalypse Knife/2 (1).png",
+                "assets/portfolio/Post apocalypse Knife/2 (2).png",
+                "assets/portfolio/Post apocalypse Knife/2 (3).png",
+                "assets/portfolio/Post apocalypse Knife/2 (4).png"
+            ]
+        },
+        {
+            id: 6,
+            title: "Rocks",
+            thumbnail: "assets/portfolio/Rocks/1.png",
+            detailImages: [
+                "assets/portfolio/Rocks/1.png",
+                "images/wood_detail2.jpg"
+            ]
+        },
+        {
+            id: 7,
+            title: "앤틱 원목 서랍장 복원 및 렌더링",
+            thumbnail: "images/wood_thumb.jpg",
+            detailImages: [
+                "assets/portfolio/Rocks/1.png",
+                "assets/portfolio/Rocks/2 (1).png",
+                "assets/portfolio/Rocks/2 (2).png",
+                "assets/portfolio/Rocks/3 (1).png",
+                "assets/portfolio/Rocks/3 (2).png",
+                "assets/portfolio/Rocks/5.png",
+                "assets/portfolio/Rocks/6 (1).png",
+                "assets/portfolio/Rocks/6 (2).png"                
+            ]
+        },
         // 새로운 파일을 올리고 싶다면 위 형식과 똑같이 { id: 4, title: "새 작업", ... } 를 추가하세요.
     ]
 };
