@@ -1,260 +1,159 @@
-/* 기본 설정 및 변수 */
-:root {
-    --bg-color: #050505; /* 아주 어두운 검정 */
-    --text-color: #ffffff; /* 흰색 글씨 */
-    --accent-color: #E8E538; /* 예시 이미지의 노란색 폰트 색상 */
-    --gray-bg: #111111;
-    --border-color: #333333;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* 기본 설정 (검은 배경, 흰 글씨, 스무스 스크롤) */
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: 'Noto Sans KR', sans-serif;
-    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: #FFFFFF;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
-/* 네비게이션 */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: rgba(5, 5, 5, 0.9);
-    padding: 15px 30px;
-    z-index: 100;
-    border-bottom: 1px solid var(--border-color);
+a {
+    color: #FFFFFF;
+    text-decoration: none;
 }
 
-.navbar ul {
-    list-style: none;
+/* 네비게이션 (최상단 우측) */
+.top-nav {
     display: flex;
     justify-content: flex-end;
+    padding: 30px 50px;
     gap: 30px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    position: sticky;
+    top: 0;
+    background-color: #000000;
+    z-index: 100;
 }
 
-.navbar a {
-    color: var(--text-color);
-    text-decoration: none;
-    font-size: 14px;
-    letter-spacing: 2px;
-    transition: color 0.3s;
-}
-
-.navbar a:hover {
-    color: var(--accent-color);
-}
-
-/* 헤더 (Hero Section) */
+/* 상단 정보 (이름, 직무) */
 .hero {
-    margin-top: 60px;
-    padding: 100px 20px 80px;
     text-align: center;
-    background: radial-gradient(circle at center, #1a2322 0%, var(--bg-color) 70%);
-    position: relative;
-    border-bottom: 2px solid #222;
+    margin: 60px 0 80px 0;
 }
 
-.hero-content {
-    position: relative;
-    z-index: 2;
-}
-
-.title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 3rem;
-    color: var(--accent-color);
-    letter-spacing: 5px;
-    margin-bottom: 10px;
-}
-
-.subtitle {
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 1.2rem;
-    color: var(--accent-color);
-    font-weight: 300;
+#hero-name {
+    font-size: 4rem;
+    margin: 0;
     letter-spacing: 2px;
 }
 
-/* 포트폴리오 그리드 (3열 배치) */
+#hero-job {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #AAAAAA;
+    margin-top: 10px;
+}
+
+/* 포트폴리오 그리드 (1줄 3개, 정사각형 크롭) */
 .portfolio-section {
-    padding: 50px 20px;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 40px;
 }
 
 .portfolio-item {
     cursor: pointer;
-    overflow: hidden;
-    background-color: var(--gray-bg);
-    border: 1px solid var(--border-color);
-    position: relative;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
 .portfolio-item:hover {
     transform: translateY(-5px);
-    border-color: var(--accent-color);
 }
 
 .portfolio-item img {
     width: 100%;
-    height: 350px;
-    object-fit: cover; /* 이미지가 비율을 유지하며 칸에 꽉 차게 렌더링 */
+    aspect-ratio: 1 / 1;
+    object-fit: cover; /* 정사각형 크롭 유지 */
     display: block;
-    transition: opacity 0.3s ease;
 }
 
-.portfolio-item:hover img {
-    opacity: 0.8;
+.portfolio-item h3 {
+    margin-top: 15px;
+    font-size: 1.1rem;
+    text-align: center;
+    font-weight: 400;
 }
 
-/* About 섹션 */
+/* 세부 페이지 (이미지 세로 정렬) */
+.detail-container {
+    max-width: 900px;
+    margin: 40px auto 100px auto;
+    padding: 0 20px;
+}
+
+.detail-title {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.vertical-scroll {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* 이미지 사이 간격 */
+}
+
+.vertical-scroll img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* About 섹션 (최하단) */
 .about-section {
-    padding: 80px 20px;
-    background-color: var(--gray-bg);
-    border-top: 1px solid var(--border-color);
-}
-
-.about-container {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 150px auto 100px auto;
+    padding: 40px 20px;
+    border-top: 1px solid #333;
 }
 
 .about-top {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 40px;
-    margin-bottom: 40px;
-    padding-bottom: 30px;
-    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 30px;
 }
 
-.profile-img-container img {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
+#about-image {
+    width: 200px;
+    height: 200px;
     object-fit: cover;
-    border: 2px solid var(--accent-color);
 }
 
-.profile-info h2 {
-    font-family: 'Orbitron', sans-serif;
+.about-info h3 {
     font-size: 2rem;
-    color: var(--accent-color);
-    margin-bottom: 10px;
+    margin: 0 0 10px 0;
 }
 
-.profile-info .email {
+.about-info p {
     font-size: 1.1rem;
-    color: #aaaaaa;
+    color: #CCCCCC;
+    margin: 0;
 }
 
-.about-bottom h3 {
-    font-size: 1.2rem;
-    color: var(--accent-color);
-    margin-bottom: 15px;
-    letter-spacing: 1px;
+.about-bottom {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #DDDDDD;
 }
 
-.education-list {
-    list-style: none;
-}
-
-.education-list li {
-    margin-bottom: 10px;
-    color: #dddddd;
-}
-
-/* 세부 페이지 (Modal Overlay) */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--bg-color);
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto; /* 세로 스크롤 가능 */
-}
-
-.modal.hidden {
-    display: none;
-}
-
-.modal-header {
-    position: sticky;
-    top: 0;
-    background-color: rgba(5, 5, 5, 0.95);
-    padding: 20px 30px;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid var(--border-color);
-    z-index: 10;
-}
-
-.close-btn {
-    background: none;
-    border: none;
-    color: var(--accent-color);
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-right: 30px;
-    transition: color 0.3s;
-}
-
-.close-btn:hover {
-    color: #ffffff;
-}
-
-#modal-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.5rem;
-    color: var(--text-color);
-}
-
-.modal-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
-    gap: 30px;
-}
-
-.modal-body img {
-    max-width: 1200px;
-    width: 100%;
-    height: auto;
-    border: 1px solid var(--border-color);
-}
-
-/* 반응형 모바일 최적화 */
-@media (max-width: 1024px) {
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
+/* 반응형 (모바일 최적화) */
 @media (max-width: 768px) {
-    .grid-container {
-        grid-template-columns: 1fr;
-    }
-    .about-top {
-        flex-direction: column;
-        text-align: center;
-    }
+    .grid-container { grid-template-columns: repeat(2, 1fr); }
+    #hero-name { font-size: 2.5rem; }
+    .about-top { flex-direction: column; align-items: center; text-align: center; }
+}
+@media (max-width: 480px) {
+    .grid-container { grid-template-columns: 1fr; }
 }
