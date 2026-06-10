@@ -3,63 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PARK YUN MIN - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <nav class="navbar">
-        <ul>
-            <li><a href="#home">HOME</a></li>
-            <li><a href="#about">ABOUT</a></li>
-        </ul>
+    <nav class="top-nav">
+        <a href="index.html#portfolio">Portfolio</a>
+        <a href="index.html#about">About</a>
     </nav>
 
-    <header id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="title">PARK YUN MIN</h1>
-            <h2 class="subtitle">3D Environment Artist</h2>
-        </div>
-        <div class="wave-decoration"></div>
+    <header class="hero">
+        <h1 id="hero-name"></h1>
+        <h2 id="hero-job"></h2>
     </header>
 
-    <main>
-        <section id="portfolio" class="portfolio-section">
-            <div class="grid-container" id="portfolio-grid">
-                </div>
-        </section>
-    </main>
+    <section id="portfolio" class="portfolio-section">
+        <div class="grid-container" id="portfolio-grid">
+            </div>
+    </section>
 
     <section id="about" class="about-section">
         <div class="about-container">
             <div class="about-top">
-                <div class="profile-img-container">
-                    <img src="images/profile.jpg" alt="Profile Image" id="profile-img">
+                <img id="about-image" src="" alt="Profile Image">
+                <div class="about-info">
+                    <h3 id="about-name"></h3>
+                    <p id="about-email"></p>
                 </div>
-                <div class="profile-info">
-                    <h2>PARK YUN MIN</h2>
-                    <p class="email">parkyunmin@email.com</p> </div>
             </div>
             <div class="about-bottom">
-                <h3>EDUCATION & EXPERIENCE</h3>
-                <ul class="education-list">
-                    <li>202X - OOO 대학교 3D 아트 전공 졸업</li>
-                    <li>202X - OOO 게임 아카데미 환경 모델링 과정 수료</li>
-                    </ul>
+                <p id="about-education"></p>
             </div>
         </div>
     </section>
 
-    <div id="detail-modal" class="modal hidden">
-        <div class="modal-header">
-            <button id="close-modal" class="close-btn">← BACK TO PORTFOLIO</button>
-            <h2 id="modal-title">Project Title</h2>
-        </div>
-        <div class="modal-body" id="detail-images-container">
-            </div>
-    </div>
-
+    <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
