@@ -3,220 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <style>
-        /* 기본 설정 및 부드러운 스크롤 */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #111111; /* 어두운 검정색 배경 */
-            color: #ffffff; /* 흰색 텍스트 */
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-        }
-
-        /* 5. 최상단 네비게이션 (바로가기 버튼) */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: rgba(17, 17, 17, 0.95);
-            padding: 20px 0;
-            text-align: center;
-            z-index: 1000;
-            border-bottom: 1px solid #333;
-        }
-
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            margin: 0 30px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #aaaaaa;
-        }
-
-        /* 5. 페이지 배너 */
-        .banner {
-            margin-top: 65px; /* 네비게이션 바 높이만큼 여백 */
-            height: 40vh; /* 화면 높이의 40% */
-            background-color: #222;
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('banner-placeholder.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-bottom: 1px solid #333;
-        }
-
-        .banner h1 {
-            font-size: 3rem;
-            letter-spacing: 2px;
-        }
-
-        /* 섹션 공통 스타일 */
-        section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 50px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border-bottom: 2px solid #555;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        /* 4. 포트폴리오 세부 카테고리 및 그리드 */
-        .category-title {
-            font-size: 1.5rem;
-            margin: 40px 0 20px 0;
-            color: #cccccc;
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        /* 썸네일 카드 스타일 */
-        .portfolio-item {
-            background-color: #1a1a1a;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            color: #fff;
-            display: block;
-        }
-
-        .portfolio-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        .thumbnail {
-            width: 100%;
-            aspect-ratio: 16 / 9; /* 이미지 비율 유지 */
-            background-color: #333;
-            object-fit: cover;
-        }
-
-        .file-info {
-            padding: 15px;
-            text-align: center;
-        }
-
-        .file-name {
-            margin: 0;
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-
-        /* 3. ABOUT 섹션 (화면 하단) */
-        #about {
-            min-height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border-top: 1px solid #333;
-            background-color: #0a0a0a;
-        }
-
-        .about-content {
-            max-width: 800px;
-            line-height: 1.8;
-            font-size: 1.1rem;
-            text-align: center;
-            color: #bbbbbb;
-        }
-
-    </style>
+    <title>Park Yunmin | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <nav>
-        <a href="#portfolio">PORTFOLIO</a>
-        <a href="#about">ABOUT</a>
-    </nav>
-
-    <header class="banner">
-        <h1>PORTFOLIO</h1>
+    <header>
+        <div class="logo">PARK YUNMIN</div>
+        <nav>
+            <a href="#portfolio" class="active">PORTFOLIO</a>
+            <a href="#about">ABOUT</a>
+        </nav>
     </header>
 
     <main>
-        <section id="portfolio">
-            <div class="text-center">
-                <h2 class="section-title">Works</h2>
-            </div>
-
-            <h3 class="category-title">3D Models & Environments</h3>
-            <div class="portfolio-grid">
-                <a href="detail_1.html" class="portfolio-item">
-                    <img src="thumb1.jpg" alt="Building Facade" class="thumbnail" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20fill%3D%22%23333%22%20width%3D%22800%22%20height%3D%22450%22%2F%3E%3Ctext%20fill%3D%22%23777%22%20font-family%3D%22sans-serif%22%20font-size%3D%2230%22%20dy%3D%2210.5%22%20font-weight%3D%22bold%22%20x%3D%2250%25%22%20y%3D%2250%25%22%20text-anchor%3D%22middle%22%3EImage%20Placeholder%3C%2Ftext%3E%3C%2Fsvg%3E'">
-                    <div class="file-info">
-                        <p class="file-name">Building_Facade_Front_Side.obj</p>
-                    </div>
-                </a>
-                
-                <a href="detail_2.html" class="portfolio-item">
-                    <img src="thumb2.jpg" alt="Antique Furniture" class="thumbnail" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20fill%3D%22%23333%22%20width%3D%22800%22%20height%3D%22450%22%2F%3E%3Ctext%20fill%3D%22%23777%22%20font-family%3D%22sans-serif%22%20font-size%3D%2230%22%20dy%3D%2210.5%22%20font-weight%3D%22bold%22%20x%3D%2250%25%22%20y%3D%2250%25%22%20text-anchor%3D%22middle%22%3EImage%20Placeholder%3C%2Ftext%3E%3C%2Fsvg%3E'">
-                    <div class="file-info">
-                        <p class="file-name">Antique_Wooden_Drawer.fbx</p>
-                    </div>
-                </a>
-            </div>
-
-            <h3 class="category-title">Substance Painter Alphas & Textures</h3>
-            <div class="portfolio-grid">
-                <a href="detail_3.html" class="portfolio-item">
-                    <img src="thumb3.jpg" alt="Leather Texture" class="thumbnail" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20fill%3D%22%23333%22%20width%3D%22800%22%20height%3D%22450%22%2F%3E%3Ctext%20fill%3D%22%23777%22%20font-family%3D%22sans-serif%22%20font-size%3D%2230%22%20dy%3D%2210.5%22%20font-weight%3D%22bold%22%20x%3D%2250%25%22%20y%3D%2250%25%22%20text-anchor%3D%22middle%22%3EImage%20Placeholder%3C%2Ftext%3E%3C%2Fsvg%3E'">
-                    <div class="file-info">
-                        <p class="file-name">Worn_Leather_Alpha_4K.png</p>
-                    </div>
-                </a>
-
-                <a href="detail_4.html" class="portfolio-item">
-                    <img src="thumb4.jpg" alt="Stone Texture" class="thumbnail" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20fill%3D%22%23333%22%20width%3D%22800%22%20height%3D%22450%22%2F%3E%3Ctext%20fill%3D%22%23777%22%20font-family%3D%22sans-serif%22%20font-size%3D%2230%22%20dy%3D%2210.5%22%20font-weight%3D%22bold%22%20x%3D%2250%25%22%20y%3D%2250%25%22%20text-anchor%3D%22middle%22%3EImage%20Placeholder%3C%2Ftext%3E%3C%2Fsvg%3E'">
-                    <div class="file-info">
-                        <p class="file-name">Cracked_Stone_Stencil.png</p>
-                    </div>
-                </a>
-            </div>
+        <section id="portfolio" class="content-section">
+            <div class="portfolio-grid" id="portfolio-grid">
+                </div>
         </section>
 
-        <section id="about">
-            <h2 class="section-title">About Me</h2>
+        <section id="about" class="content-section" style="display: none;">
             <div class="about-content">
-                <p>안녕하세요. 디테일과 비율의 정확성을 중시하는 아티스트입니다.</p>
-                <p>여기에 본인의 작업 철학, 사용하는 툴, 혹은 간단한 자기소개를 작성해 주세요.</p>
+                <h2>About Me</h2>
+                <p>여기에 본인의 소개글을 작성하세요.</p>
             </div>
         </section>
     </main>
 
-    <script>
-        // 현재는 CSS의 scroll-behavior: smooth 속성으로 부드러운 스크롤이 구현되어 있습니다.
-        // 추가적인 동적 효과가 필요할 경우 여기에 JS 코드를 작성할 수 있습니다.
-        console.log("포트폴리오 페이지가 로드되었습니다.");
-    </script>
+    <script src="app.js"></script>
 </body>
 </html>
