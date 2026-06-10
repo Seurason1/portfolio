@@ -3,33 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Park Yunmin | Portfolio</title>
+    <title>PARK YUN MIN - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="logo">PARK YUNMIN</div>
-        <nav>
-            <a href="#portfolio" class="active">PORTFOLIO</a>
-            <a href="#about">ABOUT</a>
-        </nav>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="title">PARK YUN MIN</h1>
+            <h2 class="subtitle">3D Environment Artist</h2>
+        </div>
+        <div class="wave-decoration"></div>
     </header>
 
     <main>
-        <section id="portfolio" class="content-section">
-            <div class="portfolio-grid" id="portfolio-grid">
+        <section id="portfolio" class="portfolio-section">
+            <div class="grid-container" id="portfolio-grid">
                 </div>
-        </section>
-
-        <section id="about" class="content-section" style="display: none;">
-            <div class="about-content">
-                <h2>About Me</h2>
-                <p>여기에 본인의 소개글을 작성하세요.</p>
-            </div>
         </section>
     </main>
 
-    <script src="app.js"></script>
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <div class="about-top">
+                <div class="profile-img-container">
+                    <img src="images/profile.jpg" alt="Profile Image" id="profile-img">
+                </div>
+                <div class="profile-info">
+                    <h2>PARK YUN MIN</h2>
+                    <p class="email">parkyunmin@email.com</p> </div>
+            </div>
+            <div class="about-bottom">
+                <h3>EDUCATION & EXPERIENCE</h3>
+                <ul class="education-list">
+                    <li>202X - OOO 대학교 3D 아트 전공 졸업</li>
+                    <li>202X - OOO 게임 아카데미 환경 모델링 과정 수료</li>
+                    </ul>
+            </div>
+        </div>
+    </section>
+
+    <div id="detail-modal" class="modal hidden">
+        <div class="modal-header">
+            <button id="close-modal" class="close-btn">← BACK TO PORTFOLIO</button>
+            <h2 id="modal-title">Project Title</h2>
+        </div>
+        <div class="modal-body" id="detail-images-container">
+            </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
