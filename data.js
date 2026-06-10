@@ -6,7 +6,7 @@ const siteData = {
         job: "3D Environment Artist", 
         email: "k0108419@naver.com",
         education: "한양대학교 에리카 캠퍼스 일본학과 졸업",
-        profileImage: "images/profile.jpg" // 깃허브 images 폴더에 사진을 넣고 이름 변경
+        profileImage: "assets/profile.png" // 깃허브 images 폴더에 사진을 넣고 이름 변경
     },
     
     // Portfolio 항목 리스트 (여기에 새 객체를 추가하면 페이지에 자동 반영됩니다)
