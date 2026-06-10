@@ -2,10 +2,10 @@
 const siteData = {
     // About 및 메인 상단 정보
     profile: {
-        name: "당신의 이름",
-        job: "3D Texture Artist / 3D Modeler", 
-        email: "your_email@gmail.com",
-        education: "ㅇㅇ대학교 3D그래픽학과 졸업",
+        name: "KIM SANG WON",
+        job: "3D Environment Artist", 
+        email: "k0108419@naver.com",
+        education: "한양대학교 에리카 캠퍼스 일본학과 졸업",
         profileImage: "images/profile.jpg" // 깃허브 images 폴더에 사진을 넣고 이름 변경
     },
     
