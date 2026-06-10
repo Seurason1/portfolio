@@ -94,7 +94,7 @@ const siteData = {
                 "assets/portfolio/Rocks/6 (1).png",
                 "assets/portfolio/Rocks/6 (2).png"                
             ]
-        },
+        }
         // 새로운 파일을 올리고 싶다면 위 형식과 똑같이 { id: 4, title: "새 작업", ... } 를 추가하세요.
     ]
 };
