@@ -3,260 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>웹 포트폴리오</title>
-    
+    <title>My Portfolio</title>
     <style>
-        /* 기본 설정 및 색상 변수 */
-        :root {
-            --primary-color: #2b2d42;
-            --secondary-color: #8d99ae;
-            --accent-color: #ef233c;
-            --bg-color: #f8f9fa;
-            --text-color: #333;
+        /* 기본 설정 및 부드러운 스크롤 */
+        html {
+            scroll-behavior: smooth;
         }
-
-        * {
-            box-sizing: border-box;
+        
+        body {
             margin: 0;
             padding: 0;
+            background-color: #111111; /* 어두운 검정색 배경 */
+            color: #ffffff; /* 흰색 텍스트 */
+            font-family: 'Helvetica Neue', Arial, sans-serif;
         }
 
-        body { 
-            font-family: 'Helvetica Neue', Arial, sans-serif; 
-            background-color: var(--bg-color); 
-            color: var(--text-color); 
-            line-height: 1.6; 
+        /* 5. 최상단 네비게이션 (바로가기 버튼) */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(17, 17, 17, 0.95);
+            padding: 20px 0;
+            text-align: center;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
         }
 
-        html { 
-            /* 부드러운 스크롤 효과 */
-            scroll-behavior: smooth; 
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: color 0.3s;
         }
 
-        /* 네비게이션 바 (상단 고정) */
-        header { 
-            background: white; 
-            padding: 1.2rem 5%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
+        nav a:hover {
+            color: #aaaaaa;
         }
 
-        .logo { 
-            font-size: 1.5rem; 
-            font-weight: 800; 
-            color: var(--primary-color); 
-            text-decoration: none; 
-            letter-spacing: 1px;
+        /* 5. 페이지 배너 */
+        .banner {
+            margin-top: 65px; /* 네비게이션 바 높이만큼 여백 */
+            height: 40vh; /* 화면 높이의 40% */
+            background-color: #222;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('banner-placeholder.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #333;
         }
 
-        nav a { 
-            margin-left: 25px; 
-            text-decoration: none; 
-            color: var(--text-color); 
-            font-weight: 600; 
-            transition: color 0.3s ease; 
-        }
-
-        nav a:hover { 
-            color: var(--accent-color); 
+        .banner h1 {
+            font-size: 3rem;
+            letter-spacing: 2px;
         }
 
         /* 섹션 공통 스타일 */
-        section { 
-            padding: 100px 5%; 
-            min-height: 80vh; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            text-align: center; 
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        h1 { font-size: 3.5rem; margin-bottom: 15px; color: var(--primary-color); }
-        h2 { font-size: 2.5rem; margin-bottom: 40px; color: var(--primary-color); position: relative;}
-        h2::after {
-            content: '';
-            width: 50px;
-            height: 3px;
-            background: var(--accent-color);
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #555;
+            display: inline-block;
+            padding-bottom: 10px;
         }
 
-        .subtitle { 
-            font-size: 1.2rem; 
-            color: #666; 
-            max-width: 600px; 
-            margin-bottom: 40px; 
+        .text-center {
+            text-align: center;
         }
 
-        /* 버튼 스타일 */
-        .btn { 
-            display: inline-block; 
-            padding: 12px 30px; 
-            background: var(--primary-color); 
-            color: white; 
-            text-decoration: none; 
-            border-radius: 50px; 
-            font-weight: bold;
-            transition: background 0.3s, transform 0.2s; 
+        /* 4. 포트폴리오 세부 카테고리 및 그리드 */
+        .category-title {
+            font-size: 1.5rem;
+            margin: 40px 0 20px 0;
+            color: #cccccc;
         }
 
-        .btn:hover { 
-            background: var(--accent-color); 
-            transform: translateY(-3px);
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        /* 포트폴리오 갤러리 그리드 */
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 30px; 
-            width: 100%; 
-            max-width: 1200px; 
+        /* 썸네일 카드 스타일 */
+        .portfolio-item {
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: #fff;
+            display: block;
         }
 
-        .card { 
-            background: white; 
-            border-radius: 12px; 
-            overflow: hidden; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08); 
-            transition: transform 0.3s ease, box-shadow 0.3s ease; 
-            text-align: left;
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
         }
 
-        .card:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        .thumbnail {
+            width: 100%;
+            aspect-ratio: 16 / 9; /* 이미지 비율 유지 */
+            background-color: #333;
+            object-fit: cover;
         }
 
-        .card-img-placeholder { 
-            background: #e9ecef; 
-            height: 220px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            color: #adb5bd;
-            font-weight: bold;
+        .file-info {
+            padding: 15px;
+            text-align: center;
         }
 
-        .card-content { padding: 25px; }
-        .card-content h3 { margin-bottom: 10px; color: var(--primary-color); }
-        .card-content p { font-size: 0.95rem; color: #555; }
-
-        /* 연락처 및 푸터 */
-        .contact-info p { margin: 10px 0; font-size: 1.1rem; }
-        footer { 
-            text-align: center; 
-            padding: 25px; 
-            background: var(--primary-color); 
-            color: rgba(255,255,255,0.7); 
+        .file-name {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 500;
         }
 
-        /* 반응형 모바일 화면 처리 */
-        @media (max-width: 768px) {
-            nav { display: none; /* 모바일에서는 간단히 숨김 처리 */ }
-            h1 { font-size: 2.5rem; }
+        /* 3. ABOUT 섹션 (화면 하단) */
+        #about {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-top: 1px solid #333;
+            background-color: #0a0a0a;
         }
+
+        .about-content {
+            max-width: 800px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            text-align: center;
+            color: #bbbbbb;
+        }
+
     </style>
 </head>
 <body>
 
-    <header>
-        <a href="#" class="logo">PORTFOLIO</a>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About Me</a>
-            <a href="#projects">Work</a>
-            <a href="#contact">Contact</a>
-        </nav>
+    <nav>
+        <a href="#portfolio">PORTFOLIO</a>
+        <a href="#about">ABOUT</a>
+    </nav>
+
+    <header class="banner">
+        <h1>PORTFOLIO</h1>
     </header>
 
     <main>
-        <section id="home">
-            <h1>안녕하세요, <br>웹 개발자 <b>[본인 이름]</b>입니다.</h1>
-            <p class="subtitle" id="typewriter"></p>
-            <a href="#projects" class="btn">포트폴리오 보기</a>
-        </section>
+        <section id="portfolio">
+            <div class="text-center">
+                <h2 class="section-title">Works</h2>
+            </div>
 
-        <section id="about" style="background-color: white;">
-            <h2>About Me</h2>
-            <p class="subtitle">사용자 경험을 최우선으로 생각하며, 깔끔한 UI와 효율적인 코드를 작성하는 것을 목표로 합니다. 끊임없이 새로운 기술을 배우고 적용하는 것을 즐깁니다.</p>
-        </section>
-
-        <section id="projects">
-            <h2>My Work</h2>
-            <div class="grid">
+            <h3 class="category-title">3D Models & Environments</h3>
+            <div class="portfolio-grid">
+                <a href="detail_1.html" class="portfolio-item">
+                    <img src="thumb1.jpg" alt="Building Facade" class="thumbnail" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20fill%3D%22%23333%22%20width%3D%22800%22%20height%3D%22450%22%2F%3E%3Ctext%20fill%3D%22%23777%22%20font-family%3D%22sans-serif%22%20font-size%3D%2230%22%20dy%3D%2210.5%22%20font-weight%3D%22bold%22%20x%3D%2250%25%22%20y%3D%2250%25%22%20text-anchor%3D%22middle%22%3EImage%20Placeholder%3C%2Ftext%3E%3C%2Fsvg%3E'">
+                    <div class="file-info">
+                        <p class="file-name">Building_Facade_Front_Side.obj</p>
+                    </div>
+                </a>
                 
-                <div class="card">
-                    <div class="card-img-placeholder">[프로젝트 썸네일 이미지]</div>
-                    <div class="card-content">
-                        <h3>프로젝트 타이틀 1</h3>
-                        <p>이곳에 프로젝트에 대한 핵심 요약, 맡은 역할, 사용한 기술 스택(HTML, CSS, JS 등)을 간단히 기재합니다.</p>
+                <a href="detail_2.html" class="portfolio-item">
+                    <img src="thumb2.jpg" alt="Antique Furniture" class="thumbnail" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20fill%3D%22%23333%22%20width%3D%22800%22%20height%3D%22450%22%2F%3E%3Ctext%20fill%3D%22%23777%22%20font-family%3D%22sans-serif%22%20font-size%3D%2230%22%20dy%3D%2210.5%22%20font-weight%3D%22bold%22%20x%3D%2250%25%22%20y%3D%2250%25%22%20text-anchor%3D%22middle%22%3EImage%20Placeholder%3C%2Ftext%3E%3C%2Fsvg%3E'">
+                    <div class="file-info">
+                        <p class="file-name">Antique_Wooden_Drawer.fbx</p>
                     </div>
-                </div>
+                </a>
+            </div>
 
-                <div class="card">
-                    <div class="card-img-placeholder">[프로젝트 썸네일 이미지]</div>
-                    <div class="card-content">
-                        <h3>프로젝트 타이틀 2</h3>
-                        <p>이곳에 프로젝트에 대한 핵심 요약, 맡은 역할, 사용한 기술 스택(HTML, CSS, JS 등)을 간단히 기재합니다.</p>
+            <h3 class="category-title">Substance Painter Alphas & Textures</h3>
+            <div class="portfolio-grid">
+                <a href="detail_3.html" class="portfolio-item">
+                    <img src="thumb3.jpg" alt="Leather Texture" class="thumbnail" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20fill%3D%22%23333%22%20width%3D%22800%22%20height%3D%22450%22%2F%3E%3Ctext%20fill%3D%22%23777%22%20font-family%3D%22sans-serif%22%20font-size%3D%2230%22%20dy%3D%2210.5%22%20font-weight%3D%22bold%22%20x%3D%2250%25%22%20y%3D%2250%25%22%20text-anchor%3D%22middle%22%3EImage%20Placeholder%3C%2Ftext%3E%3C%2Fsvg%3E'">
+                    <div class="file-info">
+                        <p class="file-name">Worn_Leather_Alpha_4K.png</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="card">
-                    <div class="card-img-placeholder">[프로젝트 썸네일 이미지]</div>
-                    <div class="card-content">
-                        <h3>프로젝트 타이틀 3</h3>
-                        <p>이곳에 프로젝트에 대한 핵심 요약, 맡은 역할, 사용한 기술 스택(HTML, CSS, JS 등)을 간단히 기재합니다.</p>
+                <a href="detail_4.html" class="portfolio-item">
+                    <img src="thumb4.jpg" alt="Stone Texture" class="thumbnail" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20viewBox%3D%220%200%20800%20450%22%3E%3Crect%20fill%3D%22%23333%22%20width%3D%22800%22%20height%3D%22450%22%2F%3E%3Ctext%20fill%3D%22%23777%22%20font-family%3D%22sans-serif%22%20font-size%3D%2230%22%20dy%3D%2210.5%22%20font-weight%3D%22bold%22%20x%3D%2250%25%22%20y%3D%2250%25%22%20text-anchor%3D%22middle%22%3EImage%20Placeholder%3C%2Ftext%3E%3C%2Fsvg%3E'">
+                    <div class="file-info">
+                        <p class="file-name">Cracked_Stone_Stencil.png</p>
                     </div>
-                </div>
-
+                </a>
             </div>
         </section>
 
-        <section id="contact" style="background-color: white; min-height: 50vh;">
-            <h2>Contact</h2>
-            <p class="subtitle">협업 제안이나 궁금한 점이 있으시다면 아래로 편하게 연락주세요.</p>
-            <div class="contact-info">
-                <p>📧 Email: your.email@example.com</p>
-                <p>📱 Phone: 010-1234-5678</p>
-                <p>🔗 GitHub: github.com/yourusername</p>
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p>안녕하세요. 디테일과 비율의 정확성을 중시하는 아티스트입니다.</p>
+                <p>여기에 본인의 작업 철학, 사용하는 툴, 혹은 간단한 자기소개를 작성해 주세요.</p>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 [본인 이름]. All rights reserved.</p>
-    </footer>
-
     <script>
-        // 메인 화면 타이핑 애니메이션 효과
-        const textToType = "창의적인 아이디어를 코드로 구현하고 문제를 해결합니다.";
-        const typewriterElement = document.getElementById("typewriter");
-        let charIndex = 0;
-        const typingSpeed = 80; // 타이핑 속도 (밀리초)
-        
-        function typeWriter() {
-            if (charIndex < textToType.length) {
-                typewriterElement.innerHTML += textToType.charAt(charIndex);
-                charIndex++;
-                setTimeout(typeWriter, typingSpeed);
-            }
-        }
-        
-        // 브라우저 렌더링이 완료되면 애니메이션 시작
-        window.onload = () => {
-            typeWriter();
-        };
+        // 현재는 CSS의 scroll-behavior: smooth 속성으로 부드러운 스크롤이 구현되어 있습니다.
+        // 추가적인 동적 효과가 필요할 경우 여기에 JS 코드를 작성할 수 있습니다.
+        console.log("포트폴리오 페이지가 로드되었습니다.");
     </script>
-
 </body>
 </html>
