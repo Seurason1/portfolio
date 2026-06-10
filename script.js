@@ -1,106 +1,62 @@
-/**
- * 1. 포트폴리오 데이터 관리 (업로드 기능 대체)
- * 새로운 이미지를 GitHub의 images 폴더에 넣고, 아래 배열에 추가만 하면
- * 메인 페이지와 세부 페이지에 자동으로 반영됩니다.
- */
-const portfolioData = [
-    {
-        id: 1,
-        title: "Western Carriage",
-        thumbnail: "assets/portfolio/Axegun/AxeGun (1).png", // 메인에 보일 썸네일 경로
-        // 세부 페이지에서 세로로 스크롤될 이미지들 경로
-        detailImages: [
-            "assets/portfolio/Axegun/AxeGun (1).png",
-            "assets/portfolio/Axegun/AxeGun (2).png",
-            "assets/portfolio/Axegun/AxeGun (3).png",
-            "assets/portfolio/Axegun/AxeGun (4).png",
-            "assets/portfolio/Axegun/AxeGun (5).png"
-            "assets/portfolio/Axegun/AxeGun (6).png"
-            
-        ]
-    },
-    {
-        id: 2,
-        title: "Sci-Fi Corridor",
-        thumbnail: "images/thumb_scifi.jpg",
-        detailImages: [
-            "images/scifi_detail_1.jpg",
-            "images/scifi_detail_2.jpg",
-            "images/scifi_detail_3.jpg"
-        ]
-    },
-    {
-        id: 3,
-        title: "Antique Press Machine",
-        thumbnail: "images/thumb_press.jpg",
-        detailImages: [
-            "images/press_detail_1.jpg",
-            "images/press_detail_2.jpg"
-        ]
-    }
-    // 새로운 작품 추가 예시:
-    // {
-    //     id: 4,
-    //     title: "새로운 작품 이름",
-    //     thumbnail: "images/새로운썸네일.jpg",
-    //     detailImages: ["images/세부1.jpg", "images/세부2.jpg"]
-    // }
-];
-
 document.addEventListener('DOMContentLoaded', () => {
-    const gridContainer = document.getElementById('portfolio-grid');
-    const detailModal = document.getElementById('detail-modal');
-    const closeModalBtn = document.getElementById('close-modal');
-    const modalTitle = document.getElementById('modal-title');
-    const detailImagesContainer = document.getElementById('detail-images-container');
+    
+    // 1. 공통 프로필 데이터 렌더링 (index.html에서만 작동)
+    const heroName = document.getElementById('hero-name');
+    if (heroName) {
+        // 메인 상단 렌더링
+        heroName.textContent = siteData.profile.name;
+        document.getElementById('hero-job').textContent = siteData.profile.job;
 
-    // 2. 포트폴리오 메인 화면 그리드 자동 생성
-    portfolioData.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'portfolio-item';
-        div.innerHTML = `<img src="${item.thumbnail}" alt="${item.title}">`;
-        
-        // 3. 각 항목 클릭 시 세부 페이지(모달) 오픈 이벤트
-        div.addEventListener('click', () => openDetail(item));
-        
-        gridContainer.appendChild(div);
-    });
+        // About 섹션 렌더링
+        document.getElementById('about-image').src = siteData.profile.profileImage;
+        document.getElementById('about-name').textContent = siteData.profile.name;
+        document.getElementById('about-email').textContent = siteData.profile.email;
+        document.getElementById('about-education').innerText = siteData.profile.education;
 
-    // 4. 세부 페이지 열기 함수
-    function openDetail(item) {
-        modalTitle.textContent = item.title;
-        detailImagesContainer.innerHTML = ''; // 기존 이미지 초기화
+        // 포트폴리오 그리드 렌더링
+        const gridContainer = document.getElementById('portfolio-grid');
+        siteData.portfolio.forEach(project => {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'portfolio-item';
+            // 항목 클릭 시 detail.html로 id값을 파라미터로 넘김
+            itemDiv.onclick = () => { window.location.href = `detail.html?id=${project.id}`; };
 
-        // 세부 이미지들을 생성하여 세로로 정렬
-        item.detailImages.forEach(imgSrc => {
             const img = document.createElement('img');
-            img.src = imgSrc;
-            img.alt = item.title;
-            detailImagesContainer.appendChild(img);
-        });
+            img.src = project.thumbnail;
+            img.alt = project.title;
 
-        // 모달창 보이게 하고, 바디 스크롤 막기
-        detailModal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden'; 
+            const title = document.createElement('h3');
+            title.textContent = project.title;
+
+            itemDiv.appendChild(img);
+            itemDiv.appendChild(title);
+            gridContainer.appendChild(itemDiv);
+        });
     }
 
-    // 5. 세부 페이지 닫기 버튼 로직
-    closeModalBtn.addEventListener('click', () => {
-        detailModal.classList.add('hidden');
-        document.body.style.overflow = 'auto'; // 바디 스크롤 원상복구
-    });
+    // 2. 세부 페이지 데이터 렌더링 (detail.html에서만 작동)
+    const detailTitle = document.getElementById('detail-title');
+    if (detailTitle) {
+        // URL에서 id값 추출
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = parseInt(urlParams.get('id'));
 
-    // 6. 네비게이션 스크롤 부드럽게 이동 (About 클릭 시 하단 이동)
-    document.querySelectorAll('.navbar a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
+        // 해당 id의 프로젝트 찾기
+        const project = siteData.portfolio.find(p => p.id === projectId);
+
+        if (project) {
+            detailTitle.textContent = project.title;
+            const imagesContainer = document.getElementById('detail-images-container');
             
-            window.scrollTo({
-                top: targetElement.offsetTop - 60, // 네비게이션 바 높이만큼 보정
-                behavior: 'smooth'
+            // 세부 이미지들을 순차적으로 세로 정렬
+            project.detailImages.forEach(imgSrc => {
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.alt = `${project.title} detail image`;
+                imagesContainer.appendChild(img);
             });
-        });
-    });
+        } else {
+            detailTitle.textContent = "프로젝트를 찾을 수 없습니다.";
+        }
+    }
 });
