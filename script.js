@@ -7,11 +7,16 @@ const portfolioData = [
     {
         id: 1,
         title: "Western Carriage",
-        thumbnail: "images/thumb_carriage.jpg", // 메인에 보일 썸네일 경로
+        thumbnail: "assets/portfolio/Axegun/AxeGun (1).png", // 메인에 보일 썸네일 경로
         // 세부 페이지에서 세로로 스크롤될 이미지들 경로
         detailImages: [
-            "images/carriage_detail_1.jpg",
-            "images/carriage_detail_2.jpg"
+            "assets/portfolio/Axegun/AxeGun (1).png",
+            "assets/portfolio/Axegun/AxeGun (2).png",
+            "assets/portfolio/Axegun/AxeGun (3).png",
+            "assets/portfolio/Axegun/AxeGun (4).png",
+            "assets/portfolio/Axegun/AxeGun (5).png"
+            "assets/portfolio/Axegun/AxeGun (6).png"
+            
         ]
     },
     {
