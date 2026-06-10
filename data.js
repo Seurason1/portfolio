@@ -5,7 +5,7 @@ const siteData = {
         name: "KIM SANG WON",
         job: "3D Environment Artist", 
         email: "k0108419@naver.com",
-        education: "한양대학교 에리카 캠퍼스 일본학과 졸업",
+        education: "2018 ~ 2026     한양대학교 에리카 캠퍼스 일본학과 졸업",
         profileImage: "assets/profile.png" // 깃허브 images 폴더에 사진을 넣고 이름 변경
     },
     
