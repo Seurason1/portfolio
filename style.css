@@ -1,4 +1,12 @@
-/* 기본 초기화 및 폰트 설정 */
+/* 기본 설정 및 변수 */
+:root {
+    --bg-color: #050505; /* 아주 어두운 검정 */
+    --text-color: #ffffff; /* 흰색 글씨 */
+    --accent-color: #E8E538; /* 예시 이미지의 노란색 폰트 색상 */
+    --gray-bg: #111111;
+    --border-color: #333333;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,85 +14,247 @@
 }
 
 body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
     font-family: 'Noto Sans KR', sans-serif;
-    color: #333;
-    background-color: #ffffff;
     line-height: 1.6;
 }
 
-/* 헤더 및 네비게이션 */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 50px;
-    background-color: #fff;
-    position: sticky;
+/* 네비게이션 */
+.navbar {
+    position: fixed;
     top: 0;
-    z-index: 1000;
+    width: 100%;
+    background-color: rgba(5, 5, 5, 0.9);
+    padding: 15px 30px;
+    z-index: 100;
+    border-bottom: 1px solid var(--border-color);
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 2px;
-}
-
-nav a {
-    text-decoration: none;
-    color: #888;
-    margin-left: 30px;
-    font-size: 14px;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-nav a:hover, nav a.active {
-    color: #000;
-}
-
-/* 포트폴리오 그리드 레이아웃 */
-.content-section {
-    padding: 40px 50px;
-}
-
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
     gap: 30px;
 }
 
-/* 개별 포트폴리오 아이템 */
+.navbar a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 2px;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: var(--accent-color);
+}
+
+/* 헤더 (Hero Section) */
+.hero {
+    margin-top: 60px;
+    padding: 100px 20px 80px;
+    text-align: center;
+    background: radial-gradient(circle at center, #1a2322 0%, var(--bg-color) 70%);
+    position: relative;
+    border-bottom: 2px solid #222;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    color: var(--accent-color);
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+/* 포트폴리오 그리드 (3열 배치) */
+.portfolio-section {
+    padding: 50px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
 .portfolio-item {
     cursor: pointer;
     overflow: hidden;
+    background-color: var(--gray-bg);
+    border: 1px solid var(--border-color);
     position: relative;
-    background: #f4f4f4; /* 이미지 로딩 전 배경색 */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
 }
 
 .portfolio-item img {
     width: 100%;
-    height: 300px;
-    object-fit: cover;
+    height: 350px;
+    object-fit: cover; /* 이미지가 비율을 유지하며 칸에 꽉 차게 렌더링 */
     display: block;
-    transition: transform 0.4s ease;
+    transition: opacity 0.3s ease;
 }
 
 .portfolio-item:hover img {
-    transform: scale(1.05);
+    opacity: 0.8;
 }
 
-.portfolio-info {
-    padding: 15px 0;
+/* About 섹션 */
+.about-section {
+    padding: 80px 20px;
+    background-color: var(--gray-bg);
+    border-top: 1px solid var(--border-color);
 }
 
-.portfolio-info h3 {
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 5px;
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.portfolio-info p {
-    font-size: 13px;
-    color: #777;
+.about-top {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.profile-img-container img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent-color);
+}
+
+.profile-info h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.profile-info .email {
+    font-size: 1.1rem;
+    color: #aaaaaa;
+}
+
+.about-bottom h3 {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.education-list {
+    list-style: none;
+}
+
+.education-list li {
+    margin-bottom: 10px;
+    color: #dddddd;
+}
+
+/* 세부 페이지 (Modal Overlay) */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* 세로 스크롤 가능 */
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-header {
+    position: sticky;
+    top: 0;
+    background-color: rgba(5, 5, 5, 0.95);
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    z-index: 10;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--accent-color);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-right: 30px;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #ffffff;
+}
+
+#modal-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    gap: 30px;
+}
+
+.modal-body img {
+    max-width: 1200px;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--border-color);
+}
+
+/* 반응형 모바일 최적화 */
+@media (max-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+    .about-top {
+        flex-direction: column;
+        text-align: center;
+    }
 }
