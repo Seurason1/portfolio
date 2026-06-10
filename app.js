@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "title": "Vintage Leather Armrest Texture",
+        "category": "Alpha Map / Substance Painter",
+        "imageUrl": "assets/images/leather_texture.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Building Facade 3D Model",
+        "category": "3D Modeling",
+        "imageUrl": "assets/images/building_model.jpg"
+    },
+    {
+        "id": 3,
+        "title": "Wood Grain Color Correction",
+        "category": "Texture Visualization",
+        "imageUrl": "assets/images/wood_drawer.jpg"
+    }
+]
